@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #00666d;
+  background-image: url("/images/pattern2.png");
+}
+
+.navbar {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 20px;
+  gap: 30px;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+a:any-link {
+  color: #eed9d9;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: 2.5rem;
+}
+
+.flex__body {
+  display: flex;
+  min-height: 620px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto;
+  min-height: 153px;
+  min-width: 500px;
+  align-items: center;
+  background-color: beige;
+  background-image: url("/images/pattern.png");
+  border-radius: 10px;
+  box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.753);
+}
+
+.todo {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(235, 235, 194);
+  width: 80%;
+  min-height: 53px;
+  border-radius: 10px;
+}
+
+input{
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-left: 10px;
+  padding-bottom: 5px;
+}
+
+input[type="text"]:focus{
+  outline: none;
+  border-bottom: 2px solid #6D0700;
+}
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+input[type="checkbox"]:checked + .checkbox__label {
+  text-decoration: line-through;
+  color: gray;
+}
+
+::placeholder{
+  color: rgba(128, 128, 128, 0.514);
+}
+
+.item {
+  display: flex;
+  font-size: 2rem;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid rgba(109, 105, 105, 0.568);
+}
+
+.item:last-child{
+  border: none;
+}
+
+button{
+  height:53px;
+  width:53px;
+  border-radius: 50%;
+  background-color: black;
+  background-color: #00666d;
+  color: white;
+  font-size: 2.5rem;
+  border: none;
+}
+
+footer{
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+@media only screen and (min-height: 730px) {
+  .flex__body {
+    min-height: 800px;
+  }
+}

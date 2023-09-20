@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<div class="flex__body">
+  <div class="container">
+    <div class="heading">
+      <% if (locals.date){ %>
+      <h1><%= date %></h1>
+      <% } else{ %>
+      <h1>Work List</h1>
+      <% } %>
+    </div>
+    <div class="todo">
+      <!--  according to the page name send by the server(which page is use on, using that particular array) -->
+        <% var item = page === "today" ? newItem : workItem; %>
+        <% if(item && item.length > 0){ %>
+          <% for (let i = 0; i < item.length; i++) { %>
+            <% const element = item[i]; %> 
+            <div class="item">
+              <input type="checkbox" />
+              <p class="checkbox__label"><%= element %></p>
+            </div>
+          <% } %>
+        <% } %>
+      <!-- action also according to the pages name -->
+      <form class="item" action="<%= page === 'today' ? '/' : '/work' %>" method="post">
+        <input type="text" name="newItem" placeholder="New Item" />
+        <button type="submit">+</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
