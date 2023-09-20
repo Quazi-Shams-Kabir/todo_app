@@ -1,5 +1,7 @@
 # Basic TODO app
 
+Checkout: <a href="https://todo-02bg.onrender.com/">TO-DO APP</a>
+
 - this is a practice project of what I've lernt till now in MERN WebDev(20th sept '23)
 
 - functionality is this app are : 
