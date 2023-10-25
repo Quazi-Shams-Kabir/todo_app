@@ -3,29 +3,38 @@
 <div class="flex__body">
   <div class="container">
     <div class="heading">
-      <% if (locals.date){ %>
-      <h1><%= date %></h1>
-      <% } else{ %>
-      <h1>Work List</h1>
+      <% if (locals.pageTitle){ %>
+      <h1><%= pageTitle %></h1>
       <% } %>
     </div>
     <div class="todo">
-      <!--  according to the page name send by the server(which page is use on, using that particular array) -->
-        <% var item = page === "today" ? newItem : workItem; %>
-        <% if(item && item.length > 0){ %>
-          <% for (let i = 0; i < item.length; i++) { %>
-            <% const element = item[i]; %> 
+      <!-- rendering the items -->
+      <% if (locals.newItem) {%>
+        <% newItem.forEach(eachItem => { %>
+          <form action="/delete"method="post">
             <div class="item">
-              <input type="checkbox" />
-              <p class="checkbox__label"><%= element %></p>
+              <!-- onchange will submit the form data on toggling of the checkbox condition -->
+              <input type="checkbox" name="checkbox" value="<%= eachItem._id %>" onChange="this.form.submit()"/>
+              <input type="hidden" name="title" value="<%= pageTitle %>"/>
+              <p class="checkbox__label"><%= eachItem.name %></p>
             </div>
-          <% } %>
-        <% } %>
-      <!-- action also according to the pages name -->
-      <form class="item" action="<%= page === 'today' ? '/' : '/work' %>" method="post">
+          </form>
+        <% }); %>
+      <% } else {%>
+        <% customItem.forEach(listName => { %>
+          <form action="/deleteList"method="post">
+          <div class="item customItem">
+            <a href="/new/<%= listName %>" style="color: black;"><p class="checkbox__label" style="margin: 8px;"><%= listName %></p></a>        
+            <button type="submit" name="submit" value="<%= listName %>" class="listBtn"><i class="fa-solid fa-trash-can"></i></button>
+          </div>
+        </form> 
+        <% }); %>
+      <% } %>
+          
+      <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" />
-        <button type="submit">+</button>
-      </form>
+        <button type="submit" name="button" value="<%= pageTitle %>"class="addBtn">+</button>
+      </form> 
     </div>
   </div>
 </div>
