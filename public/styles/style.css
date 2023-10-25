@@ -63,13 +63,19 @@ h1 {
 
 input{
   background-color: transparent;
-  border: none;
+  border: none;  
   font-size: 1.5rem;
   text-align: center;
   margin-left: 10px;
   padding-bottom: 5px;
+
 }
 
+input[type="text"]{
+  outline: none;
+  width: 90%;
+  border-bottom: 2px solid transparent;
+}
 input[type="text"]:focus{
   outline: none;
   border-bottom: 2px solid #6D0700;
@@ -93,24 +99,31 @@ input[type="checkbox"]:checked + .checkbox__label {
   align-items: center;
   border-bottom: 2px solid rgba(109, 105, 105, 0.568);
 }
+.customItem{
+  justify-content: space-between;
+}
 
-.item:last-child{
+form.item{
   border: none;
   padding: 10px;
 }
 
-button{
-  height:53px;
-  width:53px;
+.addBtn{
+  height:55px;
+  width:55px;
   position: absolute;
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  background-color: black;
   background-color: #00666d;
   color: white;
   font-size: 2.5rem;
   border: none;
+}
+.listBtn{
+  outline: none;
+  border: none;
+  margin-right: 10px;
 }
 
 footer{
